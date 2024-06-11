@@ -5,16 +5,23 @@ let mountains4 = document.getElementById("mountains4");
 let river = document.getElementById("river");
 let boat = document.getElementById("boat");
 let hassnaa = document.querySelector(".hassnaa");
+let main = document.querySelector(".main");
+
 window.onscroll = function () {
+  requestAnimationFrame(scrollEffect);
+};
+
+function scrollEffect() {
   let value = scrollY;
-  stars.style.left = value + "px";
-  moon.style.top = value * 4 + "px";
-  mountains3.style.top = value * 2 + "px";
-  mountains4.style.top = value * 1.5 + "px";
-  river.style.top = value + "px";
-  boat.style.top = value + "px";
-  boat.style.left = value * 3 + "px";
-  hassnaa.style.fontSize = value + "px";
+  stars.style.left = value * 0.5 + "px"; 
+  moon.style.top = value * 2 + "px";    
+  mountains3.style.top = value + "px";  
+  mountains4.style.top = value * 0.75 + "px";
+  river.style.top = value * 0.5 + "px"; 
+  boat.style.top = value * 0.5 + "px";  
+  boat.style.left = value * 1.5 + "px";
+  hassnaa.style.fontSize = value * 0.5 + "px"; 
+  
   if (scrollY >= 67) {
     hassnaa.style.fontSize = 67 + "px";
     hassnaa.style.position = "fixed";
@@ -24,11 +31,9 @@ window.onscroll = function () {
       hassnaa.style.display = "block";
     }
     if (scrollY >= 127) {
-      document.querySelector(".main").style.background =
-        "linear-gradient(#376281,#10001f)";
+      main.style.background = "linear-gradient(#376281,#10001f)";
     } else {
-      document.querySelector(".main").style.background =
-        "linear-gradient(#200016, #10001f)";
+      main.style.background = "linear-gradient(#200016, #10001f)";
     }
   }
-};
+}
